@@ -1,4 +1,4 @@
-/* $Id: rnc.c,v 1.74 2004/08/18 19:10:51 dvd Exp $ */
+/* $Id: rnc.c,v 1.75 2015/01/29 00:31:13 dvd Exp $ */
 
 #include <fcntl.h> /* open, close */
 #include <sys/types.h>
@@ -1158,7 +1158,7 @@ static int topLevel(struct rnc_source *sp) {
   getsym(sp); getsym(sp);
   while(decl(sp));
   if((is_grammar=(CUR(sp).sym==SYM_GRAMMAR))) {
-    chk_get(sp,SYM_LCUR);
+    getsym(sp); chk_get(sp,SYM_LCUR);
   }
   if(grammarContent(sp)) {
     while(grammarContent(sp));
